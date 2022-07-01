@@ -1,58 +1,50 @@
 package dataObject;
 
 import enumObject.GradeValueEnum;
+import enumObject.SubjectTypeEnum;
 
 public class Grade {
 
-  // DECLARATION
   private final String id;
-  private final GradeValueEnum value;
+  private final GradeValueEnum grade;
+  private final SubjectTypeEnum subject;
   private final String studentId;
   private final String teacherId;
+  private final String createDateTime;
 
-  private String dateTime;
-  private boolean isUpdated = false;
+  private String updateDateTime;
 
-  // CONSTRUCTOR
-  public Grade(String idArg, GradeValueEnum valueArg, String dateTimeArg, String studentIdArg, String teacherIdArg) {
-    this.dateTime = dateTimeArg;
-    this.id = idArg;
-    this.studentId = studentIdArg;
-    this.teacherId = teacherIdArg;
-    this.value = valueArg;
+  public Grade(String id, GradeValueEnum grade, SubjectTypeEnum subject, String studentId,
+      String teacherId, String createDateTime) {
+    this.id = id;
+    this.grade = grade;
+    this.subject = subject;
+    this.studentId = studentId;
+    this.teacherId = teacherId;
+    this.createDateTime = createDateTime;
   }
 
-  // SELECT
-  public String selectDateTime() {
-    return this.dateTime;
+  public String getId() {
+    return id;
   }
 
-  public String selectId() {
-    return this.id;
+  public GradeValueEnum getGrade() {
+    return grade;
   }
 
-  public boolean selectIsUpdated() {
-    return this.isUpdated;
+  public SubjectTypeEnum getSubject() {
+    return subject;
   }
 
-  public String selectStudentId() {
-    return this.studentId;
+  public String getStudentId() {
+    return studentId;
   }
 
-  public String selectTeacherId() {
-    return this.teacherId;
+  public String getTeacherId() {
+    return teacherId;
   }
 
-  public GradeValueEnum selectValue() {
-    return this.value;
-  }
-
-  // INSERT
-  public void insertDateTime(String dateTimeArg) {
-    this.dateTime = dateTimeArg;
-  }
-
-  public void insertUpdated(boolean isUpdatedArg) {
-    this.isUpdated = isUpdatedArg;
+  public String getCreateDateTime() {
+    return createDateTime;
   }
 }

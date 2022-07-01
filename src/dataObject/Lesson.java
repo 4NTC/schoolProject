@@ -1,48 +1,54 @@
 package dataObject;
 
+import enumObject.SubjectTypeEnum;
+import java.util.List;
+
 public class Lesson {
 
   // DECLARATION
   private final String id;
   private final String dateTimeEnd;
   private final String dateTimeStart;
-  private final String classId;
-  private final String studentId;
+  private final SubjectTypeEnum subjectTypeEnum;
+  private final List<String> students;
   private final String teacherId;
 
   // CONSTRUCTOR
-  public Lesson(String idArg, String dateTimeEndArg, String dateTimeStartArg, String classIdArg,
-      String studentIdArg, String teacherIdArg) {
+  public Lesson(String idArg, String dateTimeEndArg, String dateTimeStartArg,
+      SubjectTypeEnum classIdArg, List<String> studentIdArg, String teacherIdArg) {
     this.id = idArg;
     this.dateTimeEnd = dateTimeEndArg;
     this.dateTimeStart = dateTimeStartArg;
-    this.classId = classIdArg;
-    this.studentId = studentIdArg;
+    this.subjectTypeEnum = classIdArg;
+    this.students = studentIdArg;
     this.teacherId = teacherIdArg;
   }
 
-  // SELECT
-  public String selectClassId() {
-    return this.classId;
+  public String getId() {
+    return id;
   }
 
-  public String selectDateTimeEnd() {
-    return this.dateTimeEnd;
+  public String getDateTimeEnd() {
+    return dateTimeEnd;
   }
 
-  public String selectDateTimeStart() {
-    return this.dateTimeStart;
+  public String getDateTimeStart() {
+    return dateTimeStart;
   }
 
-  public String selectId() {
-    return this.id;
+  public List<String> getStudents() {
+    return students;
   }
 
-  public String selectStudentId() {
-    return this.studentId;
+  public String getTeacherId() {
+    return teacherId;
   }
 
-  public String selectTeacherId() {
-    return this.teacherId;
+  public SubjectTypeEnum getSubjectTypeEnum() {
+    return subjectTypeEnum;
+  }
+
+  public boolean isStudentAttending(String studentId) {
+    return students.contains(studentId);
   }
 }
