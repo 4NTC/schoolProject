@@ -29,4 +29,12 @@ public class Student {
   public String getBirthDate() {
     return birthDate;
   }
+
+  @Override
+  public String toString() {
+    return '{'
+        + name + '.' + surname
+        + "\t-\t" + birthDate
+        + '}';
+  }
 }

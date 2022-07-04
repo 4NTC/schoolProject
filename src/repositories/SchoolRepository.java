@@ -12,8 +12,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
+import java.util.Set;
+import utils.Util;
 
-public class SchoolRepository {
+public class SchoolRepository implements IStudentRepository {
 
   private final Map<String, Grade> grades;
   private final Map<String, Lesson> lessons;
@@ -93,6 +95,16 @@ public class SchoolRepository {
     } else {
       return Optional.empty();
     }
+  }
+
+  @Override
+  public String generateRandomId() {
+    Set<String> keySet = students.keySet();
+    String randomId = Util.generateRandomId();
+    while (keySet.contains(randomId)) {
+      randomId = Util.generateRandomId();
+    }
+    return randomId;
   }
 
   public List<Grade> findGradesByStudentId(String studentId) {
